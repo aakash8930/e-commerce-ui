@@ -38,17 +38,16 @@ export const generateMetadata = async ({
   };
 };
 
-const ProductPage = async ({
-  params,
-  searchParams,
-}: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ color: string; size: string }>;
-}) => {
-  const { size, color } = await searchParams;
+const ProductPage = async ({ params, searchParams }: Props) => {
+  const size = searchParams?.size;
+  const color = searchParams?.color;
 
-  const selectedSize = size || (product.sizes[0] as string);
-  const selectedColor = color || (product.colors[0] as string);
+  const sizeString = Array.isArray(size) ? size[0] : size;
+  const colorString = Array.isArray(color) ? color[0] : color;
+
+  // Now your logic will work correctly
+  const selectedSize = sizeString || (product.sizes[0] as string);
+  const selectedColor = colorString || (product.colors[0] as string);
   return (
     <div className="flex flex-col gap-4 lg:flex-row md:gap-12 mt-12">
       {/* IMAGE */}
