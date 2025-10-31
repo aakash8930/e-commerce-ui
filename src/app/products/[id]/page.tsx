@@ -20,7 +20,7 @@ const product: ProductType = {
   },
 };
 
-type Props = {
+type ProductPageProps = {
   params: { id: string };
   searchParams?: { [key: string]: string | string[] | undefined }; // Optional, if you use search params
 };
@@ -38,7 +38,7 @@ export const generateMetadata = async ({
   };
 };
 
-const ProductPage = async ({ params, searchParams }: Props) => {
+const ProductPage = async ({ params, searchParams }: ProductPageProps) => {
   const size = searchParams?.size;
   const color = searchParams?.color;
 
