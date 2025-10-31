@@ -20,6 +20,11 @@ const product: ProductType = {
   },
 };
 
+type Props = {
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined }; // Optional, if you use search params
+};
+
 export const generateMetadata = async ({
   params,
 }: {
